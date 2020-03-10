@@ -1,0 +1,22 @@
+{
+  "name": "automl-vision-text-from-image",
+  "version": "1.0.1",
+  "description": "",
+  "author": "Mikael Vesavuori",
+  "contributors": [
+    "Erik Grettve"
+  ],
+  "main": "index.js",
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/storage": "^4.4.0",
+    "@google-cloud/translate": "^5.2.0",
+    "@google-cloud/vision": "^1.10.0",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "serverless": "^1.65.0",
+    "serverless-google-cloudfunctions": "^2.4.1"
+  }
+}

@@ -1,0 +1,33 @@
+service:
+  name: vision
+
+plugins:
+  - serverless-google-cloudfunctions
+
+provider:
+  name: google
+  region: us-central1 # Requires us-central1, reference: https://cloud.google.com/vision/automl/docs/tutorial
+
+  # THESE TWO MUST BE UPDATED BY YOU!
+  project: "" # EDIT THIS to your value
+  credentials: ~/.gcloud/{KEYFILE}.json # EDIT THIS to your value
+
+  runtime: nodejs10
+  memorySize: 1024
+  timeout: 10s
+
+  environment:
+    BUCKET_NAME: "" # EDIT THIS to your bucket name
+    GCLOUD_PROJECT: ${self:provider.project}
+
+functions:
+  imageToText:
+    handler: imageToText
+    events:
+      - http: imageToText
+        method: POST
+  translateText:
+    handler: translateText
+    events:
+      - http: translateText
+        method: POST
